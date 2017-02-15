@@ -1,12 +1,1 @@
-
-#Used tools:
- - React
- - Redux
- - Redux Saga
- - Axios
- - Material UI
-
- #To run the application locally:
-  - npm i
-  - babel-node server/app.js - to run backend  
-  - npm start - to run frontend
+Login From widget based on redux forms 
