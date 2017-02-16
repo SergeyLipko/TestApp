@@ -25,13 +25,19 @@ const validate = values => {
     errors.gender = 'GENDER IS REQUIRED'
   }
 
+  if(!values.age_day ){ errors.age_day = true }
+  else if (values.age_day > 31 ) { errors.age_day = true }
+  else if(values.age_day < 1) { errors.age_day = true }
 
-  // if (!values.sex) {
-  //   errors.sex = 'Required'
-  // }
-  // if (!values.favoriteColor) {
-  //   errors.favoriteColor = 'Required'
-  // }
+  if(!values.age_month ){ errors.age_month = true }
+  else if (values.age_month > 12 ) { errors.age_month = true }
+  else if(values.age_month < 1) { errors.age_month = true }
+
+  if(!values.age_year ){ errors.age_year = true }
+  else if (values.age_year < 1940 ) { errors.age_year = true }
+  else if(values.age_year > 1999) { errors.age_year = true }
+
+
   return errors
 };
 

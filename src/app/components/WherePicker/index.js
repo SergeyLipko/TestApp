@@ -1,6 +1,6 @@
 import React from 'react';
-import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 import { Field } from 'redux-form';
+import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 import { css } from 'aphrodite';
 import { styles as s } from './style';
 import { variables as v } from '../../styles/utils/variables';

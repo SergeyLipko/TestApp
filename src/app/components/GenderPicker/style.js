@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
   pickerTitleWrapper: {
     ...flexDefault('center'),
     width: 400,
+    marginTop: 35,
     marginBottom: 15,
   },
 

@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
 
   wherePickerWrapper: {
     ...flexColumn('center'),
-    marginTop: 25,
+    marginTop: 35,
   },
 
   wherePickerTitle: {
