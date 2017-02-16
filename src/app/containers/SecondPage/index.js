@@ -4,6 +4,7 @@ import { css } from 'aphrodite';
 import validate from '../../utils/validation';
 import FromHead from '../../components/FormHead';
 import FormBottom from '../../components/FormBottom';
+import WherePicker from '../../components/WherePicker';
 import GenderPicker from '../../components/GenderPicker';
 import { styles as s } from './style';
 
@@ -19,6 +20,7 @@ const SecondPage = (props) => {
 
       <div>
         <Field name="gender" component={GenderPicker}/>
+        <WherePicker name="whereDidYouHear"/>
       </div>
 
       <FormBottom onBackClick={previousPage} onNextClick={handleSubmit}/>
