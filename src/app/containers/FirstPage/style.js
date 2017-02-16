@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
   },
 
   formWrapper: {
+    ...flexColumn('flex-start', 'center'),
     marginTop: 60,
   },
 

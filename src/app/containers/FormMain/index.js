@@ -10,7 +10,7 @@ class FormMain extends React.Component {
     this.nextPage = this.nextPage.bind(this);
     this.previousPage = this.previousPage.bind(this);
     this.state = {
-      page: 1,
+      page: 2,
     }
   }
 

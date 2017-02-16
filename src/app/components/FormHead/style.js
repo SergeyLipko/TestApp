@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
 
   formHeadWrapper: {
     ...flexColumn(),
-    width: '100%',
+    width: 400,
     marginBottom: 35,
   },
 

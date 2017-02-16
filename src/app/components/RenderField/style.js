@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
   fieldInput: {
     width: 340,
     height: 35,
+    fontSize: 13,
     outline: 'none',
     border: 'none',
     borderBottom: `1px solid ${v.colors.grey}`,

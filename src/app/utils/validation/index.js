@@ -1,13 +1,5 @@
 const validate = values => {
   const errors = {};
-  // if (!values.firstName) {
-  //   errors.firstName = 'Required'
-  // }
-  // if (!values.lastName) {
-  //   errors.lastName = 'Required'
-  // }
-
-
 
   if (!values.email) {
     errors.email = 'EMAIL IS REQUIRED'
@@ -27,6 +19,10 @@ const validate = values => {
   }
   else if (values.confirmPassword !== values.password) {
     errors.confirmPassword = 'PASSWORDS SHOULD BE MATCH'
+  }
+
+  if(!values.gender) {
+    errors.gender = 'GENDER IS REQUIRED'
   }
 
 

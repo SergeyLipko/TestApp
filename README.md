@@ -1,1 +1,1 @@
-Login From widget based on redux forms 
+Login From module based on redux form
