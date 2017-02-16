@@ -7,6 +7,14 @@ export const styles = StyleSheet.create({
   formCard: {
     ...formCard(),
     ...flexColumn('space-between'),
+    visibility: 'hidden',
+    opacity: 0,
+  },
+
+  formCardAppears: {
+    visibility: 'visible',
+    opacity: 1,
+    transition: '0.6s ease',
   },
 
   formWrapper: {

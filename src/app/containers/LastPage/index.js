@@ -8,15 +8,34 @@ import { styles as s } from './style';
 
 
 class LastPage extends React.Component {
+  state = {
+    animate: false,
+  };
+
+  animateComponentBody = () => {
+    setTimeout(() => {
+      this.setState({ animate: true })
+    }, 100);
+  };
+
+  componentDidMount(){
+    this.animateComponentBody();
+  }
+
   render() {
     let { handleSubmit } = this.props;
+    let { animate } = this.state;
 
     return (
-      <form className={css(s.formCard)} onSubmit={handleSubmit}>
+      <form
+        className={css(s.formCard, animate && s.formCardAppears)}
+        onSubmit={handleSubmit}>
         <FormHead text='Thank you!' progressStage={3}/>
 
         <div className={css(s.lastFormContent)}>
-          <div className={css(s.greenCircle)}>
+          <div className={css(
+            s.greenCircle, animate && s.greenCircleAnimate
+          )}>
             <DoneIcon className={css(s.doneIcon)} color='#fff'/>
           </div>
 

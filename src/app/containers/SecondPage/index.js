@@ -12,11 +12,28 @@ import { styles as s } from './style';
 
 
 class SecondPage extends React.Component {
+  state = {
+    animate: false,
+  };
+
+  animateComponentBody = () => {
+    setTimeout(() => {
+      this.setState({ animate: true })
+    }, 100);
+  };
+
+  componentDidMount(){
+    this.animateComponentBody();
+  }
+
   render() {
     let { handleSubmit, previousPage } = this.props;
+    let { animate } = this.state;
 
     return (
-      <form className={css(s.formCard)} onSubmit={handleSubmit}>
+      <form
+        className={css(s.formCard, animate && s.formCardAppears)}
+        onSubmit={handleSubmit}>
         <FromHead text='Signup' progressStage={2}/>
 
         <div className={css(s.pageFormFlow)}>
