@@ -9,35 +9,39 @@ import { styles as s } from './style';
 
 
 
-const FirstPage = (props) => {
-  return (
-    <form className={css(s.formCard)} onSubmit={props.handleSubmit}>
+class FirstPage extends React.Component {
+  render() {
+    let { handleSubmit } = this.props;
 
-      <div>
-        <FormHead text='Signup' progressStage={1}/>
-        <div className={css(s.formWrapper)}>
-          <Field
-            name="email"
-            type="email"
-            label="EMAIL"
-            component={RenderField}/>
-          <Field
-            name="password"
-            type="password"
-            label="PASSWORD"
-            component={RenderField}/>
-          <Field
-            name="confirmPassword"
-            type="password"
-            label="CONFIRM PASSWORD"
-            component={RenderField}/>
+    return (
+      <form className={css(s.formCard)} onSubmit={handleSubmit}>
+
+        <div>
+          <FormHead text='Signup' progressStage={1}/>
+          <div className={css(s.formWrapper)}>
+            <Field
+              name="email"
+              type="email"
+              label="EMAIL"
+              component={RenderField}/>
+            <Field
+              name="password"
+              type="password"
+              label="PASSWORD"
+              component={RenderField}/>
+            <Field
+              name="confirmPassword"
+              type="password"
+              label="CONFIRM PASSWORD"
+              component={RenderField}/>
+          </div>
         </div>
-      </div>
 
-      <FormBottom onNextClick={props.handleSubmit}/>
-    </form>
-  )
-};
+        <FormBottom onNextClick={handleSubmit}/>
+      </form>
+    )
+  }
+}
 
 
 export default reduxForm({

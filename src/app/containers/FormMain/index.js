@@ -1,8 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import FirstPage from '../FirstPage';
 import SecondPage from '../SecondPage';
 import LastPage from '../LastPage';
+import { setFieldsToStore } from '../../redux/modules/form';
 
+
+const mapDispatchToProps = dispatch => ({
+  setUserCredentials: cred => dispatch(setFieldsToStore(cred)),
+});
 
 class FormMain extends React.Component {
   constructor(props) {
@@ -10,7 +16,7 @@ class FormMain extends React.Component {
     this.nextPage = this.nextPage.bind(this);
     this.previousPage = this.previousPage.bind(this);
     this.state = {
-      page: 2,
+      page: 1,
     }
   }
 
@@ -23,7 +29,8 @@ class FormMain extends React.Component {
   }
 
   showResults = values => {
-    window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`)
+    this.props.setUserCredentials(values),
+    console.log(values);
   };
 
 
@@ -34,11 +41,11 @@ class FormMain extends React.Component {
       <div>
         {page === 1 && <FirstPage onSubmit={this.nextPage}/>}
         {page === 2 && <SecondPage previousPage={this.previousPage} onSubmit={this.nextPage}/>}
-        {page === 3 && <LastPage previousPage={this.previousPage} onSubmit={this.showResults}/>}
+        {page === 3 && <LastPage onSubmit={this.showResults}/>}
       </div>
     )
 
   }
 }
 
-export default FormMain;
+export default connect(null, mapDispatchToProps)(FormMain);

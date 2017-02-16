@@ -1,52 +1,36 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
-import validate from '../../utils/validation';
-const colors = [ 'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet' ];
+import { reduxForm } from 'redux-form';
+import { css } from 'aphrodite';
+import DoneIcon from 'material-ui/svg-icons/action/done';
+import FormHead from '../../components/FormHead';
+import { styles as s } from './style';
 
 
 
-const renderColorSelector = ({ input, meta: { touched, error } }) => (
-  <div>
-    <select {...input}>
-      <option value="">Select a color...</option>
-      {colors.map(val => <option value={val} key={val}>{val}</option>)}
-    </select>
-    {touched && error && <span>{error}</span>}
-  </div>
-);
+class LastPage extends React.Component {
+  render() {
+    let { handleSubmit } = this.props;
 
+    return (
+      <form className={css(s.formCard)} onSubmit={handleSubmit}>
+        <FormHead text='Thank you!' progressStage={3}/>
 
-const LastPage = (props) => {
-  const { handleSubmit, pristine, previousPage, submitting } = props;
-  return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Favorite Color</label>
-        <Field name="favoriteColor" component={renderColorSelector}/>
-      </div>
-      <div>
-        <label htmlFor="employed">Employed</label>
-        <div>
-          <Field name="employed" id="employed" component="input" type="checkbox"/>
+        <div className={css(s.lastFormContent)}>
+          <div className={css(s.greenCircle)}>
+            <DoneIcon className={css(s.doneIcon)} color='#fff'/>
+          </div>
+
+          <button className={css(s.confirmButton)} type="submit">
+            Go to dashboard
+          </button>
         </div>
-      </div>
-      <div>
-        <label>Notes</label>
-        <div>
-          <Field name="notes" component="textarea" placeholder="Notes"/>
-        </div>
-      </div>
-      <div>
-        <button type="button" className="previous" onClick={previousPage}>Previous</button>
-        <button type="submit" disabled={pristine || submitting}>Submit</button>
-      </div>
-    </form>
-  )
-};
+      </form>
+    )
+  }
+}
 
 export default reduxForm({
   form: 'main',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
-  validate
 })(LastPage)
